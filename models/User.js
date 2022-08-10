@@ -66,13 +66,10 @@ UserSchema.methods.toJSON = function () {
 }
 
 
-UserSchema.statics.findbyCredentials = async function (email, password, onlyEmail) {
+UserSchema.statics.findbyCredentials = async function (email, password) {
     const user = await User.findOne({ email });
     if (!user) {
         throw new Error('Invalid email or password');
-    }
-    if (onlyEmail) {
-        return user;
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {

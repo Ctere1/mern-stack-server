@@ -2,12 +2,19 @@ const router = require('express').Router();
 const User = require('../models/User');
 
 //Create User
-router.post('/', async (req, res) => {
+router.post('/user-create', async (req, res) => {
     try {
-        const { name, email, password, picture, referralCode } = req.body;
+        const { name, email, password, picture } = req.body;
+        const referralCode = makeCode(5);
         console.log(req.body);
-        const user = await User.create({ name, email, password, picture, referralCode });
-        res.status(201).json(user);
+        const existingUser = await User.findOne({ email });
+        if (!existingUser) {
+            const user = await User.create({ name, email, password, picture, referralCode });
+            res.status(201).json(user);
+        } else {
+            throw new Error("User already exists");
+        }
+
     } catch (error) {
         let message;
         if (error.code == 11000) {
@@ -20,12 +27,23 @@ router.post('/', async (req, res) => {
     }
 })
 
+function makeCode(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+            charactersLength));
+    }
+    return result;
+}
+
 //Login user
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         console.log(req.body);
-        const user = await User.findbyCredentials(email, password, false);
+        const user = await User.findbyCredentials(email, password);
         user.status = 'online';
         await user.save();
         res.status(200).json(user);
@@ -51,9 +69,13 @@ router.get('/users', async (req, res) => {
 router.delete('/user-delete', async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findbyCredentials(email, password, true);
-        await user.delete();
-        res.status(200).json('User Deleted');
+        const user = await User.findOne({ email });
+        if (user) {
+            await user.delete();
+            res.status(200).json('User Deleted');
+        } else {
+            throw new Error("User not exists");
+        }
     } catch (error) {
         console.log(error);
         res.status(400).json(error.message);
