@@ -82,14 +82,35 @@ router.delete('/user-delete', async (req, res) => {
     }
 })
 
-//update user
+//update user: name/password
 router.put('/user-update', async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await User.findbyCredentials(email, password, true);
-        user.points += 10;
+        const { newName, email, oldPassword, newPassword } = req.body;
+        const user = await User.findbyCredentials(email, oldPassword);
+        user.name = newName;
+        if (newPassword) {
+            user.password = newPassword;
+        }
         await user.save();
         res.status(200).json(user);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error.message);
+    }
+})
+
+//user points update via referral code
+router.put('/referral', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (user) {
+            user.points += 10;
+            await user.save();
+            res.status(200).json(user);
+        } else {
+            throw new Error("User not exists");
+        }
     } catch (error) {
         console.log(error);
         res.status(400).json(error.message);
