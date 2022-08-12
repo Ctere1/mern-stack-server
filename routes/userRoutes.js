@@ -2,11 +2,10 @@ const router = require('express').Router();
 const User = require('../models/User');
 
 //Create User
-router.post('/user-create', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const { name, email, password, picture } = req.body;
         const referralCode = makeCode(5);
-        console.log(req.body);
         const existingUser = await User.findOne({ email });
         if (!existingUser) {
             const user = await User.create({ name, email, password, picture, referralCode });
@@ -54,7 +53,7 @@ router.post('/login', async (req, res) => {
 })
 
 //Get users
-router.get('/users', async (req, res) => {
+router.get('/all', async (req, res) => {
     try {
         const users = await User.getAll();
         console.log(users);
@@ -66,7 +65,7 @@ router.get('/users', async (req, res) => {
 })
 
 //delete user
-router.delete('/user-delete', async (req, res) => {
+router.delete('/delete', async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
@@ -83,7 +82,7 @@ router.delete('/user-delete', async (req, res) => {
 })
 
 //update user: name/password
-router.put('/user-update', async (req, res) => {
+router.put('/update', async (req, res) => {
     try {
         const { newName, email, oldPassword, newPassword } = req.body;
         const user = await User.findbyCredentials(email, oldPassword);
