@@ -36,6 +36,10 @@ const UserSchema = new mongoose.Schema({
     referralCode: {
         type: String
     },
+    referralFromCode: {
+        type: String,
+        default: ''
+    },
 
 }, { minimize: false })
 

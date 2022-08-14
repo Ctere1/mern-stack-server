@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoutes')
+const authRoutes = require('./routes/authRoutes')
 const User = require('./models/User');
 const Message = require('./models/Message')
 const rooms = ['general', 'welcome', 'events', 'meeting'];
@@ -10,7 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-app.use('/user', userRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/auth', authRoutes)
 require('./connection')
 
 const server = require('http').createServer(app);
