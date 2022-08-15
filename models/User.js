@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         lowercase: true,
         index: true,
+        unique: true,
         validate: [isEmail, 'Invalid Email'],
         required: [true, 'Can not be blank']
     },
@@ -27,7 +28,7 @@ const UserSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: 'online'
+        default: 'offline'
     },
     points: {
         type: Number,
@@ -82,10 +83,14 @@ UserSchema.statics.findbyCredentials = async function (email, password) {
     return user;
 }
 
-
-UserSchema.statics.getAll = async function () {
-    const users = await User.find();
-    return users;
+//Static signup method
+UserSchema.statics.signup = async function (name, email, password, picture, referralCode, referralFromCode) {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+        throw new Error("User already exists");
+    }
+    const user = await User.create({ name, email, password, picture, referralCode, referralFromCode });
+    return user;
 }
 
 const User = mongoose.model('User', UserSchema);
