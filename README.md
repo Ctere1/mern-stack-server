@@ -7,8 +7,3 @@
 1-) npm install
 <br/>  
 2-) npm run dev
-
-
-```sh
-npm i 'a lot of things(will update later)'
-```
