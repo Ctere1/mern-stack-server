@@ -1,5 +1,4 @@
 const router = require('express').Router();
-require('dotenv').config();
 
 const { loginUser, logoutUser, refreshToken } = require('../controllers/authController');
 

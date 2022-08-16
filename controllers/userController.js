@@ -63,7 +63,7 @@ const updateUser = async (req, res) => {
 //Update the user point via referralCode
 const updatePointViaReferralCode = async (req, res) => {
     try {
-        const { referralFromCode } = req.body.user;
+        const { referralFromCode } = req.body;
         const user1 = await User.findOne({ referralFromCode });
         if (user1 && user1.referralFromCode !== '') {
             user1.points += 5;

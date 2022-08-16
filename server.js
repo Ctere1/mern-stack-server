@@ -6,6 +6,7 @@ const User = require('./models/User');
 const Message = require('./models/Message')
 const rooms = ['general', 'welcome', 'events', 'meeting'];
 const cors = require('cors');
+require('dotenv').config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

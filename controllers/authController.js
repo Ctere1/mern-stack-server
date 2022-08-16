@@ -16,15 +16,21 @@ function generateRefreshToken(user) {
 
 //Refresh Token
 const refreshToken = (req, res) => {
-    if (!refreshTokens.includes(req.body.token)) {
-        res.status(400).json("Refresh Token Invalid")
+    const { token, email } = req.body;
+    if (!token || !email) {
+        res.status(400).json("Invalid parameters. Please enter token and email")
     }
-    //remove the old refreshToken from the refreshTokens list
-    refreshTokens = refreshTokens.filter((c) => c != req.body.token);
-    //generate new accessToken and refreshToken
-    const accessToken = generateAccessToken({ user: req.body.email });
-    const refreshToken = generateRefreshToken({ user: req.body.email });
-    res.json({ accessToken: accessToken, refreshToken: refreshToken });
+    if (!refreshTokens.includes(token)) {
+        console.log(req.body);
+        //res.status(400).json("Refresh Token Invalid")
+    } else {
+        //remove the old refreshToken from the refreshTokens list
+        refreshTokens = refreshTokens.filter((c) => c != token);
+        //generate new accessToken and refreshToken
+        const accessToken = generateAccessToken({ user: email });
+        const refreshToken = generateRefreshToken({ user: email });
+        res.status(200).json({ accessToken: accessToken, refreshToken: refreshToken });
+    }
 }
 
 //Login User
