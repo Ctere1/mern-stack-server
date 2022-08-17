@@ -105,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXNlckBlbWFpbC5jb20iLCJpYXQiOjE2NjA0MTg3NzEsImV4cCI6MTY2MDQxOTk3MX0.h2NQoxNn2gATwApvN1iNOOQAmP31Y-vc2pHXE5yyqJA\"\r\n}",
+					"raw": "{\r\n    \"email\": \"user@email.com\",\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXNlckBlbWFpbC5jb20iLCJpYXQiOjE2NjA2ODU2MzMsImV4cCI6MTY2MDY4NTc1M30.AqQ3i3aiQPKClZw0OPAfeAQQ4WhL09J_ZA6Xd7rmlhE\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -142,7 +142,8 @@
 						{
 							"key": "email",
 							"value": "user@example.com",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "email",
@@ -153,7 +154,8 @@
 						{
 							"key": "password",
 							"value": "password",
-							"type": "text"
+							"type": "text",
+							"disabled": true
 						},
 						{
 							"key": "password",
@@ -286,7 +288,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\":{\r\n        \"referralFromCode\": \"33rQO\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"referralFromCode\": \"33rQO\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -315,7 +317,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXNlckBlbWFpbC5jb20iLCJpYXQiOjE2NjA1NTg0OTQsImV4cCI6MTY2MDU1OTM5NH0.AM_WDttJumXCLQSWc5aV35RK8CDfkeVsEGKx7Wg1w8Q",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidXNlckBlbWFpbC5jb20iLCJpYXQiOjE2NjA3MDQ3NzQsImV4cCI6MTY2MDcwNDc3NH0.SzFTu86a32D1XMqJO8YwmM5rREF2A1jym2YEwq11LMY",
 				"type": "string"
 			}
 		]
