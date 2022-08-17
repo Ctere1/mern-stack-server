@@ -18,7 +18,6 @@ const signupUser = async (req, res) => {
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.find();
-        console.log(users);
         res.status(200).json(users);
     } catch (error) {
         console.log(error);
@@ -78,7 +77,7 @@ const updatePointViaReferralCode = async (req, res) => {
         res.status(200).json('Referral Point Updated');
     } catch (error) {
         console.log(error);
-       // res.status(400).json(error);
+        res.status(400).json(error);
     }
 }
 
