@@ -70,6 +70,13 @@ io.on('connection', (socket) => {
         // sending message to room
         io.to(room).emit('room-messages', roomMessages);
         socket.broadcast.emit('notifications', room)
+        //Update user points for each message
+        const { email } = sender;
+        const user = await User.findOne({ email });
+        if (user) {
+            user.points += 0.5;
+            await user.save();
+        }
     })
 
     app.delete('/logout', async (req, res) => {
