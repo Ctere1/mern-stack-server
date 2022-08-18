@@ -9,3 +9,5 @@
 2-) create .env file and configure it
 <br/>  
 2-) npm run dev
+
+Live: https://student-club-mern.herokuapp.com/
