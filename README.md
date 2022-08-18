@@ -5,6 +5,8 @@
 <br/>  
 Live: https://student-club-mern.herokuapp.com/
 <br/> <br/>  
+For Client Side see: https://github.com/Ctere1/mern-stack-client
+<br/>  <br/>  
 To run locally:
 <br/>  <br/>  
 1-) npm install
