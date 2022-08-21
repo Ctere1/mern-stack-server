@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
+const { makeCode } = require('../helpers/referralCode')
 
 //Signup User
 const signupUser = async (req, res) => {
@@ -81,14 +81,5 @@ const updatePointViaReferralCode = async (req, res) => {
     }
 }
 
-function makeCode(length) {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-}
 
 module.exports = { updatePointViaReferralCode, updateUser, deleteUser, signupUser, getAllUsers }
