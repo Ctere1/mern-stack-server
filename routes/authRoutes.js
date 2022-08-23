@@ -11,10 +11,10 @@ router.delete("/logout", logoutUser)
 //Login user route
 router.post('/login', loginUser)
 
-//Refresh Token Route
+//Handle google login
 router.post("/googleLogin", googleLogin)
 
-//Refresh Token Route
+//Handle google signup
 router.post("/googleSignup", googleSignup)
 
 

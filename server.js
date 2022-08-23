@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const userRoutes = require('./routes/userRoutes')
 const authRoutes = require('./routes/authRoutes')
+const roomRoutes = require('./routes/roomRoutes')
 const User = require('./models/User');
 const Message = require('./models/Message')
-const rooms = ['general', 'welcome', 'events', 'meeting'];
 const cors = require('cors');
 require('dotenv').config();
 
@@ -14,6 +14,7 @@ app.use(cors());
 
 app.use('/api/user', userRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/room', roomRoutes)
 require('./connection')
 
 const server = require('http').createServer(app);
@@ -96,12 +97,6 @@ io.on('connection', (socket) => {
         }
     })
 })
-
-
-app.get('/rooms', (req, res) => {
-    res.json(rooms)
-})
-
 
 server.listen(PORT, () => {
     console.log('listening to port', PORT)
