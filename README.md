@@ -22,7 +22,7 @@
 ## ℹ️Introduction
 Chat Application that you can chat with application's users using MERN STACK. 
 
-Authentication and authorization processes are performed using `OAuth 2.0`.
+Authentication process is performed using `OAuth 2.0`.
 
 For Client Side see: https://github.com/Ctere1/mern-stack-client
 
