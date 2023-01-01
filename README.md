@@ -40,6 +40,7 @@ $ npm install
 # Run the app
 $ npm start
 ```
+> Do not forget setup `.env` file for MongoDB connection and Google Signin.
 
 ## ⚡API
 > See Postman Collection Json for detailed information.
