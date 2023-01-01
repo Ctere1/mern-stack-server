@@ -19,14 +19,14 @@
 
 </div>
 
-## ℹ️ Introduction
+## ℹ️Introduction
 Chat Application that you can chat with application's users using MERN STACK. 
 
 Authentication and authorization processes are performed using `OAuth 2.0`.
 
 For Client Side see: https://github.com/Ctere1/mern-stack-client
 
-## 💾 Installation Guide
+## 💾Installation Guide
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
