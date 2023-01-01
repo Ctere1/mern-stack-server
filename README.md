@@ -70,7 +70,7 @@ $ npm start
 | `GET`       | `api/user/all`              | Returns Users                      |
 | `DELETE`    | `api/user/delete`           | Deletes the User                   |
 | `PUT`       | `api/user/update`           | Updates the User                   |
-| `PUT`       | `api/user/referral`         | Update user's point                |
+| `PUT`       | `api/user/referral`         | Updates user's point                |
 
 ### **Room Endpoint**
 
