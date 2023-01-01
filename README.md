@@ -59,18 +59,18 @@ $ npm start
 | `POST`      | `api/auth/login`            |  User Login                        |  
 | `DELETE`    | `api/auth/logout`           |  User Logout                       |     
 | `POST`      | `api/auth/googleLogin`      |  Login with Google's Credentials   |     
-| `POST`      | `api/auth/googleSignup`     |  User Login                        |  
+| `POST`      | `api/auth/googleSignup`     |  Signup with Google's Credentials  |  
 | `POST`      | `api/auth/refreshToken`     |  For OAuth 2.0                     |  
 
 ### **User Endpoints**
 
 | HTTP Verb   | Endpoint                    | Description                        |
 | :---------- | :-----------------------    |:-------------------------------    |
-| `POST`      | `api/user/signup`           | Creates User                       |
+| `POST`      | `api/user/signup`           | User signup                        |
 | `GET`       | `api/user/all`              | Returns Users                      |
-| `DELETE`    | `api/user/delete`           | To delete a User                   |
-| `PUT`       | `api/user/update`           | To update the User                 |
-| `PUT`       | `api/user/referral`         | To update user's  point            |
+| `DELETE`    | `api/user/delete`           | Deletes the User                   |
+| `PUT`       | `api/user/update`           | Updates the User                   |
+| `PUT`       | `api/user/referral`         | Update user's point                |
 
 ### **Room Endpoint**
 
@@ -136,6 +136,6 @@ This software uses the following open source packages:
 ## 📌Contributors
 
 <a href="https://github.com/Ctere1/">
-  <img src="https://contrib.rocks/image?repo=Ctere1/Ctere1" />
+  <img src="https://contrib.rocks/image?repo=Ctere1/mern-stack-server" />
 </a>
 
